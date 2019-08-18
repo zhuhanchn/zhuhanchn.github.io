@@ -248,8 +248,7 @@ table td {
 #rightside {
   right: -38px;
   position: fixed;
-  bottom: 30px;
-  padding-bottom: 32px;
+  bottom: 60px;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
