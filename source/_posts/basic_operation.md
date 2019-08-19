@@ -39,7 +39,7 @@ hexo d  #发布到远程
 
 
 ### 新建文章
-- 在G:\zhuhanchn\source\_posts 路径下面，新建md文件，编辑md文件，编辑好之后采用上面的基本流程就可以发布
+- 在G:\username\source\_posts 路径下面，新建md文件，编辑md文件，编辑好之后采用上面的基本流程就可以发布
 - 注意在md文件的开始处添加下列配置内容，可以在其中设置标签、分类等
 
 ```
@@ -56,6 +56,13 @@ cover: https://i.loli.net/2019/08/18/3q2WiZL9N7IdoC1.png
 ```
 注意有网址的地方的空行操作，不然可能会识别错误。
 
+### 主题配置文件更改 butterfly.yaml
+- 目前只能在搭建的电脑上，对G:\username.github.io\source\_data\butterfly.yaml 进行修改，然后只需要hexo g -> hexo d -> hexo s，就可以更新到远端。但是很神奇的一点是，github上面，无论是hexo分支下面还是master分支下面，找不到更新的yaml的内容，应该是直接写成了html的内容更新到了master中。
+- 所以在其他电脑上git pull之后，都不能更新localhost中显示的主题样式，但是https://username.github.io/ 中显示的是最新的主题。
+- 如果想要改变其他分支电脑上的localhost的主题显示，可以直接更改分支电脑上的../username.github.io/source/_data/butterfly.yaml 文件，可改变localhost的主题显示。
+- 所以，主题请在搭建电脑上更新，并发布到远端，G:\username.github.io\source\_data\butterfly.yaml下的文件始终是最新文件，git pull也不会改变它。更改该文件，并hexo g -> hexo d -> hexo s，即可写入master的html文件中，体现在https://username.github.io/ 的显示中。
+
+
 --------------------
 
 ```yaml
@@ -66,7 +73,6 @@ npm install --save xxx  #安装插件
 npm unstall xxx #卸载插件
 
 ```
-
 
 ## 主题修改
 ### 下载
