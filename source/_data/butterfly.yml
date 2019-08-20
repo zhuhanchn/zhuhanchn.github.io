@@ -294,8 +294,8 @@ Flink:
   name: Blog 名字： Shirley Zhu
   address: Blog 地址： https://zhuhanchn.github.io/
   avatar: Blog 頭像： /img/avatar.jpeg
-  info: Blog 簡介： 今日事,今日畢
-  comment: 如果需要交換友鏈,請留言
+  info: Blog 簡介： 今日事,今日毕
+  comment: 如果需要交换友链,請留言
 
  
 
@@ -314,17 +314,17 @@ activate_power_mode:
 
 
 announcement:
-  content: 感謝訪問本站，若喜歡請收藏 ^_^
+  content: 感谢访问 ^_^
 
 reward:
   enable: true
   QR_code:
     - itemlist:
         img: /img/wechat.jpg
-        text: 微信
+        text: Wechat
     - itemlist:
         img: /img/alipay.jpg
-        text: 支付寶
+        text: Alipay
 
 related_post:
   enable: true
@@ -380,7 +380,7 @@ hr:
 # 主頁subtitle
 subtitle: 
   enable: true
-  sub1: 今日事,今日畢
+  sub1: 今日事,今日毕
   sub2: Never put off till tomorrow what you can do today  #如果有符號 ' ，記得前面加上 \ 
 
 #側邊欄顯示設置
@@ -399,7 +399,7 @@ aside:
 translate:
   enable: true
   # 默認按鈕顯示文字
-  default: 繁
+  default: 简
   #网站默认语言，1: 繁體中文, 2: 简体中文
   defaultEncoding: 2
   #延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
