@@ -50,6 +50,13 @@ hexo s
 ### git pull 有冲突
 
 注意看git pull之后提示的信息，如果有**CONFLICT**，请先解决冲突问题，然后commit和push
+```bash
+（git add .）
+git commit -m "..."
+git push
+hexo d -g
+hexo s
+```
 
 若是不允许git pull操作：
 - 保留本地的修改的做法：
@@ -70,7 +77,7 @@ hexo s
     ```
 
     （好好看CONFLICT的内容，打开冲突的文件选定需要的版本，保存，然后 （git add .） -> git commit -m "xxx" -> git push， 将选定的版本推上去）
-    commit和push完了之后，应该不会在hexo-merge下面，如果在这个下面，可以尝试git reset --hard等操作（应该是不用的）。
+    commit和push完了之后，应该不会在hexo-merge下面，如果在这个下面，可以尝试git reset --hard / git merge --abort(当没有文件需要合并,中止)等操作（应该是不用的）。
     
     
 ### 新建文章
@@ -102,7 +109,7 @@ cover: https://i.loli.net/2019/08/18/3q2WiZL9N7IdoC1.png
 - 所以，主题请在搭建电脑上更新，并发布到远端，G:\username.github.io\source\_data\butterfly.yaml下的文件始终是最新文件，git pull也不会改变它。更改该文件，并hexo g -> hexo d -> hexo s，即可写入master的html文件中，体现在https://username.github.io/ 的显示中。
 </div>
 
-- 在任意一台电脑上的\username.github.io\source\_data\butterfly.yaml 进行修改，
+- **在任意一台电脑上的\username.github.io\source\_data\butterfly.yaml 进行修改，**
     - 对于搭建电脑，只需要hexo g -> hexo d -> hexo s，就可以更新到远端。
     - 对于非搭建电脑，git add . -> git commit -m 'back up hexo files'（引号内容可改）-> git push (保证hexo分支版本最新) -> hexo clean (可选) -> hexo d -g (将最新改动更新到master分支) -> hexo s （此步骤一定不能省） -> 打开https://username.github.io/ 查看 即可
     - 将Butterfly的yaml配置文件拷到source文件夹下面的好处就是用git push就可以在不同电脑上同步更新，github上面的仓库会更新，注意每台电脑git pull没有报错就可以啦。
