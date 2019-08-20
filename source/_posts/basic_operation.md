@@ -16,7 +16,7 @@ cover: https://i.loli.net/2019/08/18/bWKhYjdJ6iRVDTv.png
 ## Hexo重要的命令和操作
 
 ### 基本流程
-```yaml
+```bash
 hexo clean #清除缓存
 hexo g  #保存修改，生成文件
 hexo s  #启动本地服务
@@ -81,7 +81,7 @@ cover: https://i.loli.net/2019/08/18/3q2WiZL9N7IdoC1.png
 
 --------------------
 
-```yaml
+```bash
 hexo init #生成站点
 hexo new page "xxx" #生成页面
 hexo new "" #生成文章
