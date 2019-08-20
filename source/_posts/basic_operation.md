@@ -39,7 +39,7 @@ hexo d  #发布到远程
 
 - **git pull 有冲突时：**
     - 保留本地的修改的做法：
-    ```
+    ```bash
     git stash # 先将本地修改存储起来
     （git stash list # 可以查看保存的信息，显示Git栈内的所有备份）
     git pull
@@ -47,7 +47,7 @@ hexo d  #发布到远程
     （git stash clear # 清空Git栈）
     ```
     - 放弃本地修改的做法:
-    ```
+    ```bash
     git reset --hard # 将本地的冲突文件冲掉，回到先前的那一个提交，后面可加版本号
     git pull
     之后会进入到hexo-merge下面，
@@ -58,7 +58,7 @@ hexo d  #发布到远程
 - 在G:\username\source\_posts 路径下面，新建md文件，编辑md文件，编辑好之后采用上面的基本流程就可以发布
 - 注意在md文件的开始处添加下列配置内容，可以在其中设置标签、分类等
 
-```
+```md
 ---
 title: Hexo博客基本操作
 date: 2019-08-18 14:59:58
