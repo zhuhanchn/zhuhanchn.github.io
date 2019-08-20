@@ -314,7 +314,7 @@ activate_power_mode:
 
 
 announcement:
-  content: ^_^ 很高兴任实米 ^_^
+  content: （ ^_^ 很高兴任实米 ^_^ ）
 
 reward:
   enable: true

@@ -50,6 +50,7 @@ hexo d  #发布到远程
     ```bash
     git reset --hard # 将本地的冲突文件冲掉，回到先前的那一个提交，后面可加版本号
     git pull
+    （好好看CONFLICT的内容，打开冲突的文件选定需要的版本，或者git mergetool）
     之后会进入到hexo-merge下面，
     需要通过git reset --hard再回到hexo下面
     ```
@@ -87,6 +88,7 @@ cover: https://i.loli.net/2019/08/18/3q2WiZL9N7IdoC1.png
     - 对于非搭建电脑，git add . -> git commit -m 'back up hexo files'（引号内容可改）-> git push (保证hexo分支版本最新) -> hexo clean (可选) -> hexo d -g (将最新改动更新到master分支) -> hexo s （此步骤一定不能省） -> 打开https://username.github.io/ 查看 即可
     - 将Butterfly的yaml配置文件拷到source文件夹下面的好处就是用git push就可以在不同电脑上同步更新，github上面的仓库会更新，注意每台电脑git pull没有报错就可以啦。
     - github.io刷新出的内容显示有延迟，localhost的实时显示
+    - 注意看git pull之后提示的信息，如果有**CONFLICT**，请先解决冲突问题
 --------------------
 
 ```bash
