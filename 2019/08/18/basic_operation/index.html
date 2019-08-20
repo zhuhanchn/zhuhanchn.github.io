@@ -50,6 +50,8 @@
 </li>
 </ul>
 <h3 id="git-pull-有冲突"><a href="#git-pull-有冲突" class="headerlink" title="git pull 有冲突"></a>git pull 有冲突</h3><p>注意看git pull之后提示的信息，如果有<strong>CONFLICT</strong>，请先解决冲突问题，然后commit和push</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">（git add .）</span><br><span class="line">git commit -m <span class="string">"..."</span></span><br><span class="line">git push</span><br><span class="line">hexo d -g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
 <p>若是不允许git pull操作：</p>
 <ul>
 <li><p>保留本地的修改的做法：</p>
@@ -58,7 +60,7 @@
 <li><p>放弃本地修改的做法:</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard <span class="comment"># 将本地的冲突文件冲掉，回到先前的那一个提交，后面可加版本号</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
 
-<p>  （好好看CONFLICT的内容，打开冲突的文件选定需要的版本，保存，然后 （git add .） -&gt; git commit -m “xxx” -&gt; git push， 将选定的版本推上去）<br>  commit和push完了之后，应该不会在hexo-merge下面，如果在这个下面，可以尝试git reset –hard等操作（应该是不用的）。</p>
+<p>  （好好看CONFLICT的内容，打开冲突的文件选定需要的版本，保存，然后 （git add .） -&gt; git commit -m “xxx” -&gt; git push， 将选定的版本推上去）<br>  commit和push完了之后，应该不会在hexo-merge下面，如果在这个下面，可以尝试git reset –hard / git merge –abort(当没有文件需要合并,中止)等操作（应该是不用的）。</p>
 </li>
 </ul>
 <h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><ul>
@@ -69,7 +71,7 @@
 
 <ul>
 <li>注意有网址的地方的空行操作，不然可能会识别错误。</li>
-<li>配置文件好像不会被pull更新，请不要随意更改开头的内容。</li>
+<li>配置文件一样会被pull更新，可以更改开头的内容，但注意，更新完一篇文章之后务必保存并关闭文件，下次请打开pull之后的最新文件进行修改！不要在之前的版本上反复修改！！</li>
 </ul>
 <h3 id="主题配置文件更改-butterfly-yaml"><a href="#主题配置文件更改-butterfly-yaml" class="headerlink" title="主题配置文件更改 butterfly.yaml"></a>主题配置文件更改 butterfly.yaml</h3><div style="display: none">
 哈哈我是注释，不会在浏览器中显示:
@@ -80,7 +82,7 @@
 </div>
 
 <ul>
-<li>在任意一台电脑上的\username.github.io\source_data\butterfly.yaml 进行修改，<ul>
+<li><strong>在任意一台电脑上的\username.github.io\source_data\butterfly.yaml 进行修改，</strong><ul>
 <li>对于搭建电脑，只需要hexo g -&gt; hexo d -&gt; hexo s，就可以更新到远端。</li>
 <li>对于非搭建电脑，git add . -&gt; git commit -m ‘back up hexo files’（引号内容可改）-&gt; git push (保证hexo分支版本最新) -&gt; hexo clean (可选) -&gt; hexo d -g (将最新改动更新到master分支) -&gt; hexo s （此步骤一定不能省） -&gt; 打开<a href="https://username.github.io/" target="_blank" rel="noopener">https://username.github.io/</a> 查看 即可</li>
 <li>将Butterfly的yaml配置文件拷到source文件夹下面的好处就是用git push就可以在不同电脑上同步更新，github上面的仓库会更新，注意每台电脑git pull没有报错就可以啦。</li>
