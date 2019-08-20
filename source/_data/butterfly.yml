@@ -314,7 +314,7 @@ activate_power_mode:
 
 
 announcement:
-  content: ^_^ 感谢访问 ^_^
+  content: ^_^ 感谢访问喵 ^_^
 
 reward:
   enable: true
