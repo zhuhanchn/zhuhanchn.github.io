@@ -1,5 +1,5 @@
 ---
-title: Hexo博客基本操作xxx
+title: Hexo博客基本操作
 date: 2019-08-18 14:59:58
 tags: 
 	- Hexo
@@ -15,13 +15,23 @@ cover: https://i.loli.net/2019/08/18/bWKhYjdJ6iRVDTv.png
 
 ## Hexo重要的命令和操作
 
-### 基本流程
+### 基本流程（修改、更新和发布）
+- 搭建电脑：
 ```bash
 hexo clean #清除缓存
 hexo g  #保存修改，生成文件
 hexo s  #启动本地服务
 hexo d  #发布到远程
 ```
+- 非搭建电脑：
+```bash
+git add .
+git commit -m "..."
+git push
+hexo d -g
+hexo s
+```
+
 **注意： 每次换电脑进行博客更新时，不管上次在其他电脑有没有更新，**
       **最好先在username.github.io文件夹下 git bash 中进行 git pull**
 
@@ -37,8 +47,13 @@ hexo d  #发布到远程
 - **多台电脑同步使用时，对于搭建电脑的操作：**
     - 多台电脑同时更新之后，搭建电脑的操作（修改博文、发布到远端）也都应该在username.github.io文件夹下，而非原本的username文件夹下了~ 不过再搭建电脑上的提交操作，只需要hexo g -> hexo d -> hexo s 三个步骤即可
 
-- **git pull 有冲突时：**
-    - 保留本地的修改的做法：
+### git pull 有冲突
+
+注意看git pull之后提示的信息，如果有**CONFLICT**，请先解决冲突问题，然后commit和push
+
+若是不允许git pull操作：
+- 保留本地的修改的做法：
+
     ```bash
     git stash # 先将本地修改存储起来
     （git stash list # 可以查看保存的信息，显示Git栈内的所有备份）
@@ -46,14 +61,17 @@ hexo d  #发布到远程
     git stash pop # 还原暂存的内容
     （git stash clear # 清空Git栈）
     ```
-    - 放弃本地修改的做法:
+
+- 放弃本地修改的做法:
+    
     ```bash
     git reset --hard # 将本地的冲突文件冲掉，回到先前的那一个提交，后面可加版本号
     git pull
-    （好好看CONFLICT的内容，打开冲突的文件选定需要的版本，或者git mergetool）
-    之后会进入到hexo-merge下面，
-    需要通过git reset --hard再回到hexo下面
     ```
+
+    （好好看CONFLICT的内容，打开冲突的文件选定需要的版本，保存，然后 （git add .） -> git commit -m "xxx" -> git push， 将选定的版本推上去）
+    commit和push完了之后，应该不会在hexo-merge下面，如果在这个下面，可以尝试git reset --hard等操作（应该是不用的）。
+    
     
 ### 新建文章
 - 在G:\username\source\_posts 路径下面，新建md文件，编辑md文件，编辑好之后采用上面的基本流程就可以发布
@@ -71,7 +89,8 @@ cover: https://i.loli.net/2019/08/18/3q2WiZL9N7IdoC1.png
 
 ---
 ```
-注意有网址的地方的空行操作，不然可能会识别错误。
+- 注意有网址的地方的空行操作，不然可能会识别错误。
+- 配置文件好像不会被pull更新，请不要随意更改开头的内容。
 
 ### 主题配置文件更改 butterfly.yaml
 
@@ -88,7 +107,7 @@ cover: https://i.loli.net/2019/08/18/3q2WiZL9N7IdoC1.png
     - 对于非搭建电脑，git add . -> git commit -m 'back up hexo files'（引号内容可改）-> git push (保证hexo分支版本最新) -> hexo clean (可选) -> hexo d -g (将最新改动更新到master分支) -> hexo s （此步骤一定不能省） -> 打开https://username.github.io/ 查看 即可
     - 将Butterfly的yaml配置文件拷到source文件夹下面的好处就是用git push就可以在不同电脑上同步更新，github上面的仓库会更新，注意每台电脑git pull没有报错就可以啦。
     - github.io刷新出的内容显示有延迟，localhost的实时显示
-    - 注意看git pull之后提示的信息，如果有**CONFLICT**，请先解决冲突问题
+    - 注意看git pull之后提示的信息，如果有**CONFLICT**，请先解决冲突问题，然后commit和push
 --------------------
 
 ```bash
