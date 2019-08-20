@@ -289,7 +289,7 @@ baidu_site_verification:
 qihu_site_verification:
 
 Flink:
-  headline: 友情鏈接
+  headline: 友情链接
   info_headline: 我的Blog資料
   name: Blog 名字： Shirley Zhu
   address: Blog 地址： https://zhuhanchn.github.io/
@@ -314,7 +314,7 @@ activate_power_mode:
 
 
 announcement:
-  content: 感谢访问 ^_^
+  content: （ ^_^ 很高兴任实米 ^_^ ）
 
 reward:
   enable: true

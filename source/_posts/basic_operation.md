@@ -16,28 +16,50 @@ cover: https://i.loli.net/2019/08/18/bWKhYjdJ6iRVDTv.png
 ## Hexo重要的命令和操作
 
 ### 基本流程
-```yaml
+```bash
 hexo clean #清除缓存
 hexo g  #保存修改，生成文件
 hexo s  #启动本地服务
 hexo d  #发布到远程
 ```
+**注意： 每次换电脑进行博客更新时，不管上次在其他电脑有没有更新，**
+      **最好先在username.github.io文件夹下 git bash 中进行 git pull**
+
 - 修改之后-> 在username文件夹下 -> hexo g -> hexo s -> 打开http://localhost:4000 查看 -> hexo d -> 打开https://username.github.io/ 查看
 
 - 修改站点配置文件、主题配置文件（Butterfly的主题配置文件在G:\username\source\_data\butterfly.yml）、修改文章等操作之后，按照上诉步骤执行就可以~
 
 - **如果是在非搭建的电脑上进行更新：**
   - localhost查看更新内容：修改之后 -> 在username.github.io文件夹下（目录中git branch的结果是*hexo）-> hexo s -> 打开http://localhost:4000 查看 即可！ 超方便的~
-  - 上传更新：修改之后 -> 在username.github.io文件夹下（目录中git branch的结果是*hexo）-> git add . -> git commit -m 'back up hexo files'（引号内容可改）-> git push (保证hexo分支版本最新) -> hexo clean (可选) -> hexo d -g (将最新改动更新到master分支) -> 打开https://username.github.io/ 查看
+  - 上传更新：修改之后 -> 在username.github.io文件夹下（目录中git branch的结果是*hexo）-> git add . -> git commit -m 'back up hexo files'（引号内容可改）-> git push (保证hexo分支版本最新) -> hexo clean (可选) -> hexo d -g (将最新改动更新到master分支) -> hexo s -> 打开https://username.github.io/ 查看
   - 参考资料：https://www.jianshu.com/p/0b1fccce74e0
 
-**注意： 每次换电脑进行博客更新时，不管上次在其他电脑有没有更新，最好先git pull**
+- **多台电脑同步使用时，对于搭建电脑的操作：**
+    - 多台电脑同时更新之后，搭建电脑的操作（修改博文、发布到远端）也都应该在username.github.io文件夹下，而非原本的username文件夹下了~ 不过再搭建电脑上的提交操作，只需要hexo g -> hexo d -> hexo s 三个步骤即可
 
+- **git pull 有冲突时：**
+    - 保留本地的修改的做法：
+    ```bash
+    git stash # 先将本地修改存储起来
+    （git stash list # 可以查看保存的信息，显示Git栈内的所有备份）
+    git pull
+    git stash pop # 还原暂存的内容
+    （git stash clear # 清空Git栈）
+    ```
+    - 放弃本地修改的做法:
+    ```bash
+    git reset --hard # 将本地的冲突文件冲掉，回到先前的那一个提交，后面可加版本号
+    git pull
+    （好好看CONFLICT的内容，打开冲突的文件选定需要的版本，或者git mergetool）
+    之后会进入到hexo-merge下面，
+    需要通过git reset --hard再回到hexo下面
+    ```
+    
 ### 新建文章
-- 在G:\zhuhanchn\source\_posts 路径下面，新建md文件，编辑md文件，编辑好之后采用上面的基本流程就可以发布
+- 在G:\username\source\_posts 路径下面，新建md文件，编辑md文件，编辑好之后采用上面的基本流程就可以发布
 - 注意在md文件的开始处添加下列配置内容，可以在其中设置标签、分类等
 
-```
+```md
 ---
 title: Hexo博客基本操作
 date: 2019-08-18 14:59:58
@@ -51,9 +73,25 @@ cover: https://i.loli.net/2019/08/18/3q2WiZL9N7IdoC1.png
 ```
 注意有网址的地方的空行操作，不然可能会识别错误。
 
+### 主题配置文件更改 butterfly.yaml
+
+<div style='display: none'>
+哈哈我是注释，不会在浏览器中显示:
+- 在搭建的电脑上，对G:\username.github.io\source\_data\butterfly.yaml 进行修改，然后只需要hexo g -> hexo d -> hexo s，就可以更新到远端。但是很神奇的一点是，github上面，无论是hexo分支下面还是master分支下面，找不到更新的yaml的内容，应该是直接写成了html的内容更新到了master中。
+- 所以在其他电脑上git pull之后，都不能更新localhost中显示的主题样式，但是https://username.github.io/ 中显示的是最新的主题。
+- 如果想要改变其他分支电脑上的localhost的主题显示，可以直接更改分支电脑上的../username.github.io/source/_data/butterfly.yaml 文件，可改变localhost的主题显示。
+- 所以，主题请在搭建电脑上更新，并发布到远端，G:\username.github.io\source\_data\butterfly.yaml下的文件始终是最新文件，git pull也不会改变它。更改该文件，并hexo g -> hexo d -> hexo s，即可写入master的html文件中，体现在https://username.github.io/ 的显示中。
+</div>
+
+- 在任意一台电脑上的\username.github.io\source\_data\butterfly.yaml 进行修改，
+    - 对于搭建电脑，只需要hexo g -> hexo d -> hexo s，就可以更新到远端。
+    - 对于非搭建电脑，git add . -> git commit -m 'back up hexo files'（引号内容可改）-> git push (保证hexo分支版本最新) -> hexo clean (可选) -> hexo d -g (将最新改动更新到master分支) -> hexo s （此步骤一定不能省） -> 打开https://username.github.io/ 查看 即可
+    - 将Butterfly的yaml配置文件拷到source文件夹下面的好处就是用git push就可以在不同电脑上同步更新，github上面的仓库会更新，注意每台电脑git pull没有报错就可以啦。
+    - github.io刷新出的内容显示有延迟，localhost的实时显示
+    - 注意看git pull之后提示的信息，如果有**CONFLICT**，请先解决冲突问题
 --------------------
 
-```yaml
+```bash
 hexo init #生成站点
 hexo new page "xxx" #生成页面
 hexo new "" #生成文章
@@ -61,7 +99,6 @@ npm install --save xxx  #安装插件
 npm unstall xxx #卸载插件
 
 ```
-
 
 ## 主题修改
 ### 下载
