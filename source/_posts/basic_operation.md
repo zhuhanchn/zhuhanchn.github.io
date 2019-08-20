@@ -73,12 +73,20 @@ cover: https://i.loli.net/2019/08/18/3q2WiZL9N7IdoC1.png
 注意有网址的地方的空行操作，不然可能会识别错误。
 
 ### 主题配置文件更改 butterfly.yaml
+
+<div style='display: none'>
+哈哈我是注释，不会在浏览器中显示:
 - 在搭建的电脑上，对G:\username.github.io\source\_data\butterfly.yaml 进行修改，然后只需要hexo g -> hexo d -> hexo s，就可以更新到远端。但是很神奇的一点是，github上面，无论是hexo分支下面还是master分支下面，找不到更新的yaml的内容，应该是直接写成了html的内容更新到了master中。
 - 所以在其他电脑上git pull之后，都不能更新localhost中显示的主题样式，但是https://username.github.io/ 中显示的是最新的主题。
 - 如果想要改变其他分支电脑上的localhost的主题显示，可以直接更改分支电脑上的../username.github.io/source/_data/butterfly.yaml 文件，可改变localhost的主题显示。
 - 所以，主题请在搭建电脑上更新，并发布到远端，G:\username.github.io\source\_data\butterfly.yaml下的文件始终是最新文件，git pull也不会改变它。更改该文件，并hexo g -> hexo d -> hexo s，即可写入master的html文件中，体现在https://username.github.io/ 的显示中。
+</div>
 
-
+- 在任意一台电脑上的\username.github.io\source\_data\butterfly.yaml 进行修改，
+    - 对于搭建电脑，只需要hexo g -> hexo d -> hexo s，就可以更新到远端。
+    - 对于非搭建电脑，git add . -> git commit -m 'back up hexo files'（引号内容可改）-> git push (保证hexo分支版本最新) -> hexo clean (可选) -> hexo d -g (将最新改动更新到master分支) -> hexo s （此步骤一定不能省） -> 打开https://username.github.io/ 查看 即可
+    - 将Butterfly的yaml配置文件拷到source文件夹下面的好处就是用git push就可以在不同电脑上同步更新，github上面的仓库会更新，注意每台电脑git pull没有报错就可以啦。
+    - github.io刷新出的内容显示有延迟，localhost的实时显示
 --------------------
 
 ```bash
