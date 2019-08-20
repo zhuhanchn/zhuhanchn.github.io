@@ -37,7 +37,23 @@ hexo d  #发布到远程
 - **多台电脑同步使用时，对于搭建电脑的操作：**
     - 多台电脑同时更新之后，搭建电脑的操作（修改博文、发布到远端）也都应该在username.github.io文件夹下，而非原本的username文件夹下了~ 不过再搭建电脑上的提交操作，只需要hexo g -> hexo d -> hexo s 三个步骤即可
 
-
+- **git pull 有冲突时：**
+    - 保留本地的修改的做法：
+    ```
+    git stash # 先将本地修改存储起来
+    （git stash list # 可以查看保存的信息，显示Git栈内的所有备份）
+    git pull
+    git stash pop # 还原暂存的内容
+    （git stash clear # 清空Git栈）
+    ```
+    - 放弃本地修改的做法:
+    ```
+    git reset --hard # 将本地的冲突文件冲掉，回到先前的那一个提交，后面可加版本号
+    git pull
+    之后会进入到hexo-merge下面，
+    需要通过git reset --hard再回到hexo下面
+    ```
+    
 ### 新建文章
 - 在G:\username\source\_posts 路径下面，新建md文件，编辑md文件，编辑好之后采用上面的基本流程就可以发布
 - 注意在md文件的开始处添加下列配置内容，可以在其中设置标签、分类等
