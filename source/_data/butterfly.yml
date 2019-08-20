@@ -321,10 +321,10 @@ reward:
   QR_code:
     - itemlist:
         img: /img/wechat.jpg
-        text: 微信
+        text: Wechat
     - itemlist:
         img: /img/alipay.jpg
-        text: 支付寶
+        text: Alipay
 
 related_post:
   enable: true
