@@ -4,7 +4,7 @@ date: 2019-09-07 21:02:58
 tags: 
 	- TDE
 
-cover: https://sm.ms/image/sZmvzOxABu2HyoU
+cover: https://i.loli.net/2019/09/07/sZmvzOxABu2HyoU.png
 
 ---
 
