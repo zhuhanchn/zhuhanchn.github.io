@@ -4,7 +4,7 @@ date: 2019-09-07 21:02:58
 tags: 
 	- TDE
 
-cover: https://s2.ax1x.com/2019/08/19/m1oBJH.png
+cover: https://sm.ms/image/sZmvzOxABu2HyoU
 
 ---
 
