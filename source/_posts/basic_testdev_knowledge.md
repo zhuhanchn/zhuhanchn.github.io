@@ -36,7 +36,7 @@ Selenium中，可以
 1.find_element_by_id();
 2.find_element_by_name():通过name查找元素, name是否唯一，name不是唯一的话会报错
 3.find_element_by_class_name();
-4.find_element_by_tag_name():<input type="text" class="s_ipt" name="wd" id="kw" maxlength="100" autocomplete="off">
+4.find_element_by_tag_name();
 5.find_element_by_link_text();
 6.find_element_by_xpath():通过Xpath定位元素, 使用谷歌插件XPath Helper，定位出来后自己修改也可以
 7.find_element_by_css_selector():通过css定位，css_selector的语法比xpath简洁很多
