@@ -4,7 +4,7 @@ date: 2019-09-11 15:32:58
 tags: 
 	- Finance
 
-cover: https://i.loli.net/2019/09/07/sZmvzOxABu2HyoU.png
+cover: https://user-images.githubusercontent.com/32296263/64687716-9da11d80-d4bd-11e9-8089-c12aee508e1d.png
 
 ---
 
