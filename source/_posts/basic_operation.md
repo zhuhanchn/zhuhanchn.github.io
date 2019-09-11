@@ -35,6 +35,11 @@ hexo s
 **注意： 每次换电脑进行博客更新时，不管上次在其他电脑有没有更新，**
       **最好先在username.github.io文件夹下 git bash 中进行 git pull**
 
+> 使用git clone出现 fatal: unable to access 'https://github.com/...'的解决办法:
+取消代理：
+git config --global --unset http.proxy 
+git config --global --unset https.proxy 
+
 - 修改之后-> 在username文件夹下 -> hexo g -> hexo s -> 打开http://localhost:4000 查看 -> hexo d -> 打开https://username.github.io/ 查看
 
 - 修改站点配置文件、主题配置文件（Butterfly的主题配置文件在G:\username\source\_data\butterfly.yml）、修改文章等操作之后，按照上诉步骤执行就可以~
