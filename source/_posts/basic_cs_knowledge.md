@@ -83,3 +83,15 @@ java中产生死锁可能性的最根本原因是：
 - 缺点：
 	- 过多的使用索引将会造成滥用。
 	- 虽然索引大大提高了查询速度，同时却会降低更新表的速度，如对表进行INSERT、UPDATE和DELETE。因为更新表时，MySQL不仅要保存数据，还要保存一下索引文件。建立索引会占用磁盘空间的索引文件。
+
+------------------------
+
+# get和post的区别
+https://baijiahao.baidu.com/s?id=1626599028653203490&wfr=spider&for=pc
+
+# C++ 虚函数和纯虚函数的区别
+https://www.runoob.com/w3cnote/cpp-virtual-functions.html
+
+# C++ 面向对象三大特性 封装 继承 多态
+
+# C++ 重载 、 重写（覆盖） 、重定义 的区别
